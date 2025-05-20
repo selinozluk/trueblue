@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I miss you so freaking much</title>
+  <style>
+    body {
+      background-color: #FEA8C5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d0466e;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .gif-container img {
+      width: 180px;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    .btn {
+      font-size: 1.5rem;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .yes-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .no-btn {
+      background-color: #FF5722;
+      color: white;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .full-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #fee75c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .full-screen img {
+      width: 40%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    .love-text {
+      font-size: 2rem;
+      color: #c14457;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Seni çok özledim, sen de beni özledin mi?</h1>
+
+  <div class="gif-container">
+    <img src="valentine.gif" alt="Ayıcık GIF">
+  </div>
+
+  <button class="btn yes-btn">ÖZLEMEZ OLUR MUYUM, TABİİ Kİ ÖZLEDİM</button>
+  <button class="btn no-btn">ÖZLEMEDİM.</button>
+
+  <script>
+    const yesButton = document.querySelector('.yes-btn');
+    const noButton = document.querySelector('.no-btn');
+    const question = document.querySelector('h1');
+    const gifContainer = document.querySelector('.gif-container');
+    let noClickCount = 0;
+
+    const noTexts = [
+      "KIRICISIN YA AYIP",
+      "Ama ben seni çok özlemiştim:/",
+      "Bence özledin, aksini kabul etmek istemiyorum",
+      "Sanırım butonları karıştırdın:(",
+      "Öpersem evete basar mısın?",
+      "Evete basarsan seni daha çok severim",
+      "Bu arada sinir küpü olduğunda bile seni çok seviyorum haberin olsun<3"
+    ];
+
+    noButton.addEventListener('click', () => {
+      if (noClickCount < noTexts.length) {
+        noButton.textContent = noTexts[noClickCount];
+        yesButton.style.fontSize = `${1.5 + noClickCount * 1.2}rem`;
+        noClickCount++;
+      } else {
+        yesButton.classList.add('expanded-yes');
+        yesButton.textContent = "ÖZLEMEZ OLUR MUYUM, TABİİ Kİ ÖZLEDİM";
+        question.classList.add('hidden');
+        gifContainer.classList.add('hidden');
+        noButton.classList.add('hidden');
+      }
+    });
+
+    yesButton.addEventListener('click', () => {
+      document.body.innerHTML = `
+        <div class="full-screen">
+          <img src="hug.gif" alt="Hug GIF">
+          <div class="love-text" style="font-weight: bold;">Senin de beni özlediğini biliyodum, uyumadan önce şarkı dinleyelim mi? 🤍</div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
