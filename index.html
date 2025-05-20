@@ -24,7 +24,7 @@
     }
 
     .gif-container img {
-      width: 180px;
+      width: 300px;
       height: auto;
       border-radius: 20px;
     }
@@ -110,7 +110,7 @@
     noButton.addEventListener('click', () => {
       if (noClickCount < noTexts.length) {
         noButton.textContent = noTexts[noClickCount];
-        yesButton.style.fontSize = `${1.5 + noClickCount * 1.2}rem`;
+        yesButton.style.fontSize = `${1.5 + noClickCount * 0.5}rem`;
         noClickCount++;
       } else {
         yesButton.classList.add('expanded-yes');
