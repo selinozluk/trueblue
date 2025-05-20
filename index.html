@@ -68,10 +68,17 @@
     }
 
     .full-screen img {
-      width: 40%;
+      width: 50%;
       height: auto;
       border-radius: 20px;
     }
+
+    @media (max-width: 400px) {
+  .full-screen img {
+    width: 80%; /* telefonda daha büyük görünmesi için */
+  }
+}
+
 
     .love-text {
       font-size: 2rem;
